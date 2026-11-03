@@ -10,6 +10,7 @@ cover:
   src: /images/articles/pancasila-tidak-cukup-dihafal-harus-terlihat-dalam-kebiasaan.webp
   alt: Siswa berseragam putih mengikuti upacara bendera di halaman sekolah sementara petugas mengibarkan bendera Merah Putih.
   credit: Arifinulburhan
+  source: Wikimedia Commons
   sourceUrl: 'https://commons.wikimedia.org/wiki/File:Upacara_bendera_di_sekolah.jpg'
   license: CC BY-SA 4.0
   licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'

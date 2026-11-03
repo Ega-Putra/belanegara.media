@@ -8,11 +8,9 @@ draft: false
 excerpt: Hoaks jarang datang dari orang asing. Ia sering masuk lewat grup keluarga dan teman sendiri. Di sinilah literasi digital menjadi bentuk bela negara.
 cover:
   src: /images/articles/cek-dulu-baru-bagikan-literasi-digital-sebagai-bentuk-bela-negara.webp
-  alt: Seorang siswi berkerudung menunduk sambil memegang dan membaca sesuatu di ponselnya.
-  credit: Dicky Herlambang
-  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Seorang_siswa_sedang_bermain_handphone.jpg'
-  license: CC0 1.0
-  licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/'
+  alt: 'Poster kampanye Kominfo bertuliskan "Saring Sebelum Sharing" dengan gambar telapak tangan hitam bertuliskan "Stop Hoax" di atas latar hijau toska.'
+  credit: Kementerian Komunikasi dan Informatika (Kominfo)
+  source: Poster kampanye antihoaks
 sources:
   - publication: Masyarakat Antifitnah Indonesia (Mafindo)
     title: TurnBackHoax.id

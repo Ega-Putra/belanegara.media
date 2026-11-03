@@ -10,6 +10,7 @@ cover:
   src: /images/articles/outbound-bela-negara-saat-nilai-kebangsaan-diuji-di-luar-kelas.webp
   alt: Gedung Rektorat UPN "Veteran" Jawa Timur di Surabaya dengan atap oranye bergaya joglo pada sore hari.
   credit: Princess Chiks Chiks
+  source: Wikimedia Commons
   sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rektorat_UPN_Jatim.jpg'
   license: CC BY-SA 4.0
   licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'

@@ -14,15 +14,21 @@ export default function ArticleFigure({ cover }: { cover: CoverImage }) {
         priority
       />
       <figcaption>
-        Foto: <a href={cover.sourceUrl}>{cover.credit}</a> / Wikimedia Commons,{" "}
-        {cover.licenseUrl ? (
-          <a href={cover.licenseUrl} rel="license">
-            {cover.license}
-          </a>
-        ) : (
-          cover.license
-        )}{" "}
-        (dipotong)
+        Gambar: {cover.sourceUrl ? <a href={cover.sourceUrl}>{cover.credit}</a> : cover.credit}
+        {cover.source && ` / ${cover.source}`}
+        {cover.license && (
+          <>
+            ,{" "}
+            {cover.licenseUrl ? (
+              <a href={cover.licenseUrl} rel="license">
+                {cover.license}
+              </a>
+            ) : (
+              cover.license
+            )}{" "}
+            (dipotong)
+          </>
+        )}
       </figcaption>
     </figure>
   );

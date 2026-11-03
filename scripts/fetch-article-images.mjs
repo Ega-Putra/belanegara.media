@@ -6,11 +6,13 @@ import sharp from "sharp";
 const UA = { "User-Agent": "belanegara-media/1.0 (https://www.belanegara.web.id)" };
 const MAX_BYTES = 195_000;
 
-/** [file di Commons, <slug>.webp, posisi potong] */
+/**
+ * [file di Commons, <slug>.webp, posisi potong]
+ * Gambar non-Commons (foto pribadi Eco-Pave, poster Kominfo) diproses manual dengan sharp
+ * ke ukuran & batas yang sama, jadi tidak tercantum di sini.
+ */
 const images = [
   ["Rektorat UPN Jatim.jpg", "outbound-bela-negara-saat-nilai-kebangsaan-diuji-di-luar-kelas.webp", "centre"],
-  ["Indonesian youth.jpg", "pemuda-tidak-perlu-menunggu-jadi-pejabat-untuk-membangun-negeri.webp", "centre"],
-  ["Seorang siswa sedang bermain handphone.jpg", "cek-dulu-baru-bagikan-literasi-digital-sebagai-bentuk-bela-negara.webp", "centre"],
   ["Upacara bendera di sekolah.jpg", "pancasila-tidak-cukup-dihafal-harus-terlihat-dalam-kebiasaan.webp", "south"],
   ["Ekowisata Mangrove Wonorejo.jpg", "belajar-dari-mangrove-wonorejo-merawat-lingkungan-juga-bela-negara.webp", "centre"],
 ];

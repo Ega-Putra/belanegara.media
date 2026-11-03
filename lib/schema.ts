@@ -12,9 +12,13 @@ export const coverImageSchema = z.object({
   /** Path di /public, WebP 1200x630, < 200 KB. Dipakai juga sebagai og:image. */
   src: z.string().regex(/^\/images\/articles\/[a-z0-9-]+\.webp$/, "harus /images/articles/<slug>.webp"),
   alt: z.string().min(20, "alt harus berupa kalimat deskriptif"),
+  /** Fotografer, pemilik, atau "Dokumentasi pribadi penulis". */
   credit: z.string().min(1),
-  sourceUrl: httpsUrl,
-  license: z.string().min(1),
+  /** Asal gambar, mis. "Wikimedia Commons". */
+  source: z.string().min(1).optional(),
+  sourceUrl: httpsUrl.optional(),
+  /** Isi untuk gambar berlisensi terbuka (mis. CC BY-SA); gambar ini ditandai "dipotong". */
+  license: z.string().min(1).optional(),
   licenseUrl: httpsUrl.optional(),
 });
 

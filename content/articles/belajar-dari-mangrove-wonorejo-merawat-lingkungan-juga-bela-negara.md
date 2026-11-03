@@ -10,6 +10,7 @@ cover:
   src: /images/articles/belajar-dari-mangrove-wonorejo-merawat-lingkungan-juga-bela-negara.webp
   alt: Hutan mangrove Ekowisata Wonorejo di Surabaya dengan perahu kayu yang bersandar di aliran sungai berwarna cokelat.
   credit: Lasthib
+  source: Wikimedia Commons
   sourceUrl: 'https://commons.wikimedia.org/wiki/File:Ekowisata_Mangrove_Wonorejo.jpg'
   license: CC BY-SA 4.0
   licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'
