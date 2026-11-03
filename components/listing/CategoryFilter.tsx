@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { categories } from "@/data/articles";
+import { categories } from "@/data/categories";
 
-/** Chip kategori. `active` = slug kategori aktif, kosong untuk "Semua". */
+/** Chip kategori. `active` = id kategori aktif, kosong untuk "Semua". */
 export default function CategoryFilter({ active }: { active?: string }) {
-  const items = [{ name: "Semua", href: "/", slug: undefined as string | undefined }].concat(
-    categories.map((c) => ({ name: c.name, href: `/kategori/${c.slug}`, slug: c.slug })),
-  );
+  const items = [
+    { name: "Semua", href: "/", id: undefined as string | undefined },
+    ...categories.map((c) => ({ name: c.name, href: `/kategori/${c.id}`, id: c.id })),
+  ];
 
   return (
     <nav aria-label="Filter kategori">
@@ -15,7 +16,7 @@ export default function CategoryFilter({ active }: { active?: string }) {
             <Link
               href={item.href}
               className="chip"
-              aria-current={item.slug === active ? "page" : undefined}
+              aria-current={item.id === active ? "page" : undefined}
             >
               {item.name}
             </Link>

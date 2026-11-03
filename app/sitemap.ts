@@ -1,17 +1,20 @@
 import type { MetadataRoute } from "next";
-import { articles, categories } from "@/data/articles";
+import { categories, getAllArticles, getArticlesByCategory } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const latest = articles.map((a) => a.date).sort().at(-1);
+  const articles = getAllArticles().filter((a) => !a.draft);
+  const latest = articles[0]?.date;
   return [
     { url: `${SITE_URL}/`, lastModified: latest, changeFrequency: "daily", priority: 1 },
-    ...categories.map((c) => ({
-      url: `${SITE_URL}/kategori/${c.slug}`,
-      lastModified: latest,
-      changeFrequency: "weekly" as const,
-      priority: 0.6,
-    })),
+    ...categories
+      .filter((c) => getArticlesByCategory(c.id).some((a) => !a.draft))
+      .map((c) => ({
+        url: `${SITE_URL}/kategori/${c.id}`,
+        lastModified: latest,
+        changeFrequency: "weekly" as const,
+        priority: 0.6,
+      })),
     ...articles.map((a) => ({
       url: `${SITE_URL}/artikel/${a.slug}`,
       lastModified: a.date,

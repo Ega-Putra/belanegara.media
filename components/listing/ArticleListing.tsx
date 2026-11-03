@@ -1,6 +1,6 @@
-import type { Article } from "@/data/articles";
-import ArticleCard from "./ArticleCard";
-import FeaturedArticle from "./FeaturedArticle";
+import ArticleCard from "@/components/article/ArticleCard";
+import FeaturedArticle from "@/components/article/FeaturedArticle";
+import type { Article } from "@/types/content";
 import PopularSidebar from "./PopularSidebar";
 
 /** Tata letak beranda/kategori: artikel unggulan + grid kartu + sidebar Terpopuler. */

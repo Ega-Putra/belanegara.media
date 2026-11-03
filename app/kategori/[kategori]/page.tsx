@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import ArticleListing from "@/components/ArticleListing";
-import CategoryFilter from "@/components/CategoryFilter";
-import { categories } from "@/data/articles";
-import { getArticlesByCategory, getCategory } from "@/lib/articles";
+import ArticleListing from "@/components/listing/ArticleListing";
+import CategoryFilter from "@/components/listing/CategoryFilter";
+import { categories, getArticlesByCategory, getCategory } from "@/lib/content";
 import { DEFAULT_OG_IMAGE, SITE_NAME, baseOpenGraph } from "@/lib/site";
 
 type Props = { params: Promise<{ kategori: string }> };
@@ -11,15 +10,15 @@ type Props = { params: Promise<{ kategori: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return categories.map((c) => ({ kategori: c.slug }));
+  return categories.map((c) => ({ kategori: c.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = getCategory((await params).kategori);
   if (!category) return {};
   const title = `Kategori ${category.name}`;
-  const description = `Kumpulan artikel dan opini kategori ${category.name} di ${SITE_NAME}.`;
-  const url = `/kategori/${category.slug}`;
+  const description = category.description;
+  const url = `/kategori/${category.id}`;
   return {
     title,
     description,
@@ -46,10 +45,10 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <CategoryFilter active={category.slug} />
+      <CategoryFilter active={category.id} />
       <h1 className="page-title">{category.name}</h1>
       <ArticleListing
-        articles={getArticlesByCategory(category.name)}
+        articles={getArticlesByCategory(category.id)}
         heading={`Artikel ${category.name}`}
       />
     </>

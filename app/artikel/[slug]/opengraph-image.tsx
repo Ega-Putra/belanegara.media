@@ -1,28 +1,27 @@
 import { ImageResponse } from "next/og";
-import { articles } from "@/data/articles";
-import { getArticle, getCategoryByName } from "@/lib/articles";
+import { getAllArticles, getArticle } from "@/lib/content";
 import { loadLogoMark, loadLoraFonts } from "@/lib/og";
 import { OG_SIZE } from "@/lib/site";
 
 export const contentType = "image/png";
 
 export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  return getAllArticles().map((a) => ({ slug: a.slug }));
 }
 
 /**
- * Artikel yang punya field `image` tidak dibuatkan gambar otomatis,
+ * Artikel yang punya `cover` tidak dibuatkan gambar otomatis,
  * sehingga og:image dari generateMetadata di page.tsx yang dipakai.
  */
 export async function generateImageMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const article = getArticle((await params).slug);
-  if (!article || article.image) return [];
+  if (!article || article.cover) return [];
   return [{ id: "og", size: OG_SIZE, alt: article.title, contentType }];
 }
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const article = getArticle((await params).slug)!;
-  const { color } = getCategoryByName(article.category);
+  const { color } = article.category;
   const titleSize = article.title.length > 60 ? 58 : 66;
   const [logoMark, fonts] = await Promise.all([loadLogoMark(), loadLoraFonts()]);
 
@@ -53,7 +52,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               justifyContent: "center",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={logoMark} width={64} height={64} alt="" />
           </div>
           <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
@@ -76,7 +74,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               background: "rgba(255,255,255,.22)",
             }}
           >
-            {article.category}
+            {article.category.name}
           </div>
           <div style={{ fontSize: titleSize, fontWeight: 700, lineHeight: 1.15 }}>
             {article.title}

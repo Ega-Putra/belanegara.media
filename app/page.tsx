@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import ArticleListing from "@/components/ArticleListing";
-import CategoryFilter from "@/components/CategoryFilter";
-import { articles } from "@/data/articles";
+import ArticleListing from "@/components/listing/ArticleListing";
+import CategoryFilter from "@/components/listing/CategoryFilter";
+import { getAllArticles } from "@/lib/content";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -12,7 +12,7 @@ export default function HomePage() {
     <>
       <CategoryFilter />
       <h1 className="sr-only">Artikel terbaru Bela Negara</h1>
-      <ArticleListing articles={articles} heading="Artikel terbaru" />
+      <ArticleListing articles={getAllArticles()} heading="Artikel terbaru" />
     </>
   );
 }

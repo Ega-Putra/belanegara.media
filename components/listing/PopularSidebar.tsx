@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getPopularArticles } from "@/lib/articles";
+import { getPopularArticles } from "@/lib/content";
 
 export default function PopularSidebar() {
   return (

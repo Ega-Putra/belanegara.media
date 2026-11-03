@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ArticleBody from "@/components/ArticleBody";
-import PopularSidebar from "@/components/PopularSidebar";
-import { articles } from "@/data/articles";
-import { formatDate, getArticle, getCategoryByName } from "@/lib/articles";
+import ArticleFigure from "@/components/article/ArticleFigure";
+import ArticleMeta from "@/components/article/ArticleMeta";
+import AuthorBox from "@/components/article/AuthorBox";
+import MarkdownBody from "@/components/article/MarkdownBody";
+import SourceList from "@/components/article/SourceList";
+import PopularSidebar from "@/components/listing/PopularSidebar";
+import { getAllArticles, getArticle } from "@/lib/content";
 import { OG_SIZE, baseOpenGraph, truncate } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -13,7 +15,7 @@ type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  return getAllArticles().map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -21,9 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {};
   const url = `/artikel/${article.slug}`;
   const description = truncate(article.excerpt);
-  // Tanpa `image`, og:image diisi otomatis oleh opengraph-image.tsx.
-  const images = article.image
-    ? [{ url: article.image.src, ...OG_SIZE, alt: article.image.alt, type: "image/webp" }]
+  // Tanpa `cover`, og:image diisi otomatis oleh opengraph-image.tsx.
+  const images = article.cover
+    ? [{ url: article.cover.src, ...OG_SIZE, alt: article.cover.alt, type: "image/webp" }]
     : undefined;
 
   return {
@@ -31,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     authors: [{ name: article.author.name }],
     alternates: { canonical: url },
+    ...(article.draft && { robots: { index: false, follow: false } }),
     openGraph: {
       ...baseOpenGraph(),
       type: "article",
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       publishedTime: article.date,
       authors: [article.author.name],
-      section: article.category,
+      section: article.category.name,
       ...(images && { images }),
     },
     twitter: {
@@ -54,8 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArticlePage({ params }: Props) {
   const article = getArticle((await params).slug);
   if (!article) notFound();
-  const category = getCategoryByName(article.category);
-  const { image } = article;
+  const { category, cover } = article;
 
   return (
     <>
@@ -64,38 +66,14 @@ export default async function ArticlePage({ params }: Props) {
       </Link>
       <div className="grid">
         <article className="art">
-          <Link href={`/kategori/${category.slug}`} className="tag">
-            {article.category}
+          <Link href={`/kategori/${category.id}`} className="tag">
+            {category.name}
           </Link>
           <h1>{article.title}</h1>
-          <div className="meta">
-            Oleh <b>{article.author.name}</b> ·{" "}
-            <time dateTime={article.date}>{formatDate(article.date)}</time> ·{" "}
-            {article.readTime} menit baca
-          </div>
+          <ArticleMeta article={article} showAuthor />
 
-          {image ? (
-            <figure className="art-figure">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={OG_SIZE.width}
-                height={OG_SIZE.height}
-                sizes="(max-width: 860px) 100vw, 720px"
-                priority
-              />
-              <figcaption>
-                Foto: <a href={image.sourceUrl}>{image.credit}</a> / Wikimedia Commons,{" "}
-                {image.licenseUrl ? (
-                  <a href={image.licenseUrl} rel="license">
-                    {image.license}
-                  </a>
-                ) : (
-                  image.license
-                )}
-                {" "}(dipotong)
-              </figcaption>
-            </figure>
+          {cover ? (
+            <ArticleFigure cover={cover} />
           ) : (
             <div
               className="art-cover"
@@ -104,23 +82,9 @@ export default async function ArticlePage({ params }: Props) {
             />
           )}
 
-          <ArticleBody content={article.content} />
-
-          <section className="art-sources" aria-labelledby="sumber">
-            <h2 id="sumber">Sumber</h2>
-            <ol>
-              {article.sources.map((s) => (
-                <li key={s.url}>
-                  {s.publication}, “<a href={s.url}>{s.title}</a>”
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <aside className="author-box" aria-label="Tentang penulis">
-            <b>{article.author.name}</b>
-            <span>{article.author.bio}</span>
-          </aside>
+          <MarkdownBody markdown={article.body} />
+          <SourceList sources={article.sources} />
+          <AuthorBox author={article.author} />
         </article>
         <PopularSidebar />
       </div>
