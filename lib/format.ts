@@ -18,6 +18,19 @@ export function formatDate(iso: string) {
   return dateFormat.format(new Date(iso));
 }
 
+const longDateFormat = new Intl.DateTimeFormat("id-ID", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "Asia/Jakarta",
+});
+
+/** Date → "Selasa, 3 November 2026" (WIB) */
+export function formatLongDate(date: Date) {
+  return longDateFormat.format(date);
+}
+
 const WORDS_PER_MINUTE = 200;
 
 /** Perkiraan menit baca dari teks Markdown. */

@@ -4,7 +4,7 @@ slug: belajar-dari-mangrove-wonorejo-merawat-lingkungan-juga-bela-negara
 category: lingkungan
 authorId: radith-pribadi-tegar
 date: '2026-10-13'
-draft: true
+draft: false
 excerpt: 'Hutan mangrove di pesisir timur Surabaya mengingatkan bahwa menjaga lingkungan bukan urusan pecinta alam saja, tetapi bagian dari membela negara.'
 cover:
   src: /images/articles/belajar-dari-mangrove-wonorejo-merawat-lingkungan-juga-bela-negara.webp
@@ -23,9 +23,12 @@ sources:
   - publication: JDIH BPK RI
     title: Undang-Undang Nomor 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara
     url: 'https://peraturan.bpk.go.id/Home/Download/114482/UU%20Nomor%2023%20Tahun%202019.pdf'
+  - publication: Management of Aquatic Resources Journal (MAQUARES), Universitas Diponegoro
+    title: 'Strategi Pengembangan Ekowisata Mangrove Wonorejo, Kecamatan Rungkut Surabaya'
+    url: 'https://ejournal3.undip.ac.id/index.php/maquares/article/view/9775/0'
 ---
 
-Bagi banyak mahasiswa di Surabaya, kawasan mangrove Wonorejo mungkin lebih dikenal sebagai tempat jalan-jalan akhir pekan: naik perahu, menyusuri jalur kayu, lalu berfoto di antara pepohonan. Kawasan ini berada di pesisir timur Surabaya, di wilayah Kecamatan Rungkut [VERIFY], tidak terlalu jauh dari kampus-kampus di bagian timur kota.
+Bagi banyak mahasiswa di Surabaya, kawasan mangrove Wonorejo mungkin lebih dikenal sebagai tempat jalan-jalan akhir pekan: naik perahu, menyusuri jalur kayu, lalu berfoto di antara pepohonan. Kawasan ini berada di pesisir timur Surabaya, di wilayah Kecamatan Rungkut, tidak terlalu jauh dari kampus-kampus di bagian timur kota.
 
 Padahal mangrove bukan sekadar latar foto. Akar-akarnya yang rapat membantu menahan lumpur dan meredam gelombang, sehingga garis pantai tidak mudah tergerus abrasi. Kawasan mangrove juga menjadi tempat hidup dan berkembang biak berbagai jenis ikan, kepiting, udang, dan burung. Kalau kawasan seperti ini rusak, yang hilang bukan hanya pemandangan, tetapi juga pelindung alami bagi warga pesisir.
 

@@ -4,7 +4,7 @@ slug: cek-dulu-baru-bagikan-literasi-digital-sebagai-bentuk-bela-negara
 category: digital
 authorId: radith-pribadi-tegar
 date: '2026-10-24'
-draft: true
+draft: false
 excerpt: Hoaks jarang datang dari orang asing. Ia sering masuk lewat grup keluarga dan teman sendiri. Di sinilah literasi digital menjadi bentuk bela negara.
 cover:
   src: /images/articles/cek-dulu-baru-bagikan-literasi-digital-sebagai-bentuk-bela-negara.webp
@@ -23,6 +23,9 @@ sources:
   - publication: JDIH BPK RI
     title: Undang-Undang Nomor 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara
     url: 'https://peraturan.bpk.go.id/Home/Download/114482/UU%20Nomor%2023%20Tahun%202019.pdf'
+  - publication: Bisnis.com
+    title: 'Komdigi Berantas 1,3 Juta Konten Negatif, Judi Online Terbanyak'
+    url: 'https://teknologi.bisnis.com/read/20250310/101/1860077/komdigi-berantas-13-juta-konten-negatif-judi-online-terbanyak'
 ---
 
 Hampir semua dari kita pernah menerima pesan berantai di grup WhatsApp keluarga. Polanya mirip: kabar yang bikin panik, sumbernya tidak jelas, lalu ditutup dengan kalimat "sebarkan sebelum dihapus!". Yang mengirim pun biasanya bukan orang asing, melainkan om, tante, atau teman sendiri yang niatnya baik.
@@ -52,7 +55,7 @@ Hal yang sama berlaku ketika kita membela Indonesia dari komentar negatif orang 
 
 Kebiasaan ini memang membuat kita sedikit lebih lambat dalam membagikan kabar. Tetapi dalam urusan informasi, terlambat beberapa menit jauh lebih baik daripada ikut menyebarkan sesuatu yang keliru kepada ratusan orang.
 
-Untuk konten negatif yang meresahkan, masyarakat juga bisa melapor melalui kanal aduan konten Kementerian Komunikasi dan Digital [VERIFY: pastikan alamat kanal aduan resmi yang berlaku saat ini].
+Untuk konten negatif yang meresahkan, masyarakat juga bisa melapor melalui aduankonten.id, kanal aduan konten milik Kementerian Komunikasi dan Digital (Komdigi).
 
 ## Bagian tersulit: meluruskan
 

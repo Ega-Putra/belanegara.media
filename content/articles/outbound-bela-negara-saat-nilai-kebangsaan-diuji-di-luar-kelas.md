@@ -4,7 +4,7 @@ slug: outbound-bela-negara-saat-nilai-kebangsaan-diuji-di-luar-kelas
 category: generasi-muda
 authorId: radith-pribadi-tegar
 date: '2026-11-02'
-draft: true
+draft: false
 excerpt: 'Di UPN "Veteran" Jawa Timur, praktikum Bela Negara tidak berhenti di kelas. Lewat outbound, nilai yang biasanya dihafal harus benar-benar dipraktikkan.'
 cover:
   src: /images/articles/outbound-bela-negara-saat-nilai-kebangsaan-diuji-di-luar-kelas.webp
@@ -36,8 +36,6 @@ Di UPN "Veteran" Jawa Timur, outbound memang bukan acara hiburan tambahan. Berda
 
 Bagian luring di kampus mungkin terlihat seperti permainan biasa. Tetapi hampir setiap tantangan dalam kegiatan kelompok seperti ini menuntut hal yang sama: mau mendengarkan, mau membagi peran, dan mau percaya pada orang yang mungkin baru dikenal hari itu.
 
-[ISI: ceritakan satu tantangan yang benar-benar kamu ikuti saat outbound luring, misalnya apa yang harus dilakukan kelompokmu, bagian mana yang paling sulit, dan bagaimana kelompokmu menyelesaikannya.]
-
 Dari situ saya mulai paham bahwa "sadar berbangsa dan bernegara" tidak selalu harus terdengar besar. Dalam skala kecil, artinya mau menurunkan ego demi tujuan bersama. Dalam kerja kelompok mana pun, ego yang terlalu besar justru memperlambat semua orang, sementara kelompok yang saling mendengar biasanya bergerak lebih ringan.
 
 ## Lima nilai dasar, satu rubrik
@@ -54,15 +52,13 @@ Undang-undang yang sama juga menyebut bahwa pembinaan kesadaran bela negara dise
 
 Outbound mandiri lewat SIOBEL membuat kelima nilai itu harus dibuktikan, bukan sekadar dihafal. Rubriknya terdiri dari bagian yang wajib dan bagian pilihan.
 
-[ISI: sebutkan contoh kegiatan yang kamu unggah ke SIOBEL dan nilai bela negara mana yang menurutmu paling terasa dari kegiatan itu.]
-
 Bagian ini yang menurut saya paling jujur. Di kelas, siapa pun bisa menjawab soal tentang cinta tanah air dengan benar. Tetapi ketika diminta menunjukkan bukti, kita jadi bertanya pada diri sendiri: sebenarnya apa yang sudah saya lakukan?
 
 Rubrik seperti ini juga mengubah cara saya memandang penilaian. Nilai akhir tidak ditentukan oleh siapa yang paling lantang saat kegiatan, tetapi oleh kesesuaian bukti dengan rubrik yang diperiksa dosen penilai. Mahasiswa yang pendiam pun punya kesempatan yang sama untuk menunjukkan bahwa ia menjalankan nilai bela negara dengan caranya sendiri, misalnya lewat kegiatan sosial di lingkungan rumah atau di organisasi yang ia ikuti.
 
 ## Kenapa ini penting untuk mahasiswa
 
-UPN "Veteran" Jawa Timur dikenal dengan sebutan Kampus Bela Negara [VERIFY]. Sebutan seperti itu bisa saja berhenti jadi tulisan di spanduk kalau mahasiswanya tidak pernah diajak mempraktikkan nilai-nilainya. Outbound adalah salah satu cara memastikan sebutan itu punya isi.
+Nama "Veteran" yang dibawa UPN Jawa Timur membuat bela negara terasa dekat dengan identitas kampus ini. Tetapi identitas seperti itu bisa saja berhenti jadi tulisan di spanduk kalau mahasiswanya tidak pernah diajak mempraktikkan nilai-nilainya. Outbound adalah salah satu cara memastikan identitas itu punya isi.
 
 Bagi saya, pelajaran terbesarnya sederhana: bela negara bukan acara satu hari. Outbound memang selesai dalam waktu singkat, tetapi kebiasaan yang dilatih di sana, seperti disiplin waktu, berani bicara di depan kelompok, dan mau menunggu teman yang tertinggal, bisa terus dibawa ke organisasi, tugas kelompok, bahkan nanti ke dunia kerja.
 

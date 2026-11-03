@@ -40,6 +40,8 @@ a.logo-link { display: inline-flex }
 .nav a:hover, .nav a[aria-current="page"] { border-color: var(--red) }
 .cta { background: var(--red); color: var(--onred); padding: 9px 18px; border-radius: 6px; font-weight: 600; font-size: .9rem; border: 0; cursor: pointer; font-family: inherit; display: inline-block }
 .ticker { background: var(--navy); color: var(--onnavy); font-size: .85rem; padding: 8px 0; overflow: hidden; white-space: nowrap }
+.ticker .wrap { overflow: hidden; text-overflow: ellipsis }
+.ticker a { text-decoration: underline; text-underline-offset: 2px }
 .ticker b { background: var(--red); color: var(--onred); padding: 2px 10px; margin-right: 12px; border-radius: 3px }
 
 /* Filter kategori */
@@ -56,7 +58,9 @@ a.logo-link { display: inline-flex }
 /* Artikel unggulan */
 .hero { position: relative; border-radius: 10px; overflow: hidden; min-height: 340px; color: #fff }
 .hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 22px); pointer-events: none }
-.hero > a { position: relative; display: flex; align-items: flex-end; min-height: 340px; padding: 28px; border-radius: 10px }
+.hero > img { object-fit: cover }
+.hero.has-image::before { background: linear-gradient(180deg, rgba(10,40,25,.05) 30%, rgba(10,40,25,.78) 100%); z-index: 1 }
+.hero > a { position: relative; z-index: 2; display: flex; align-items: flex-end; min-height: 340px; padding: 28px; border-radius: 10px }
 .hero > a:focus-visible { outline-offset: -5px; outline-color: #fff }
 .hero h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin: 8px 0 }
 .hero > a:hover h2 { text-decoration: underline; text-underline-offset: 5px }
@@ -68,6 +72,9 @@ a.logo-link { display: inline-flex }
 /* Kartu artikel */
 .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 32px }
 .card > a { display: block }
+.thumb { position: relative; overflow: hidden }
+.thumb img { object-fit: cover; transition: transform .3s }
+.card > a:hover .thumb img { transform: scale(1.03) }
 .thumb { aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 12px; display: grid; place-items: center; color: #fff; font: 700 1.8rem var(--font-serif), serif }
 .card h3 { font-size: 1.15rem; margin: 4px 0 6px }
 .card > a:hover h3, .card > a:focus-visible h3 { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 4px }
@@ -123,4 +130,4 @@ footer address a { text-decoration: underline; text-underline-offset: 2px }
 
 @media (max-width: 860px) { .grid { grid-template-columns: 1fr } }
 @media (max-width: 560px) { .list { grid-template-columns: 1fr } .nav { display: none } .hero, .hero > a { min-height: 280px } .hero > a { padding: 22px } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } .thumb img { transition: none } }

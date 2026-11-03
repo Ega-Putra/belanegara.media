@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import Ticker from "./Ticker";
 import { SITE_NAME } from "@/lib/site";
 
 export default function Header() {
@@ -20,12 +21,7 @@ export default function Header() {
           </a>
         </div>
       </header>
-      <div className="ticker">
-        <div className="wrap">
-          <b>Terbaru</b>Selasa, 3 November 2026 · Lomba artikel Bela Negara kini
-          dibuka untuk pelajar dan mahasiswa se-Indonesia
-        </div>
-      </div>
+      <Ticker />
     </>
   );
 }

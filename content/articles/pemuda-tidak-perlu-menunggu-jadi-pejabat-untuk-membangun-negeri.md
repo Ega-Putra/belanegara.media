@@ -4,7 +4,7 @@ slug: pemuda-tidak-perlu-menunggu-jadi-pejabat-untuk-membangun-negeri
 category: generasi-muda
 authorId: radith-pribadi-tegar
 date: '2026-10-28'
-draft: true
+draft: false
 excerpt: 'Sumpah Pemuda lahir dari anak muda yang berani berkumpul dan bersepakat. Hari ini, kontribusi pemuda bisa dimulai dari bidang yang sedang kita pelajari.'
 cover:
   src: /images/articles/pemuda-tidak-perlu-menunggu-jadi-pejabat-untuk-membangun-negeri.webp
@@ -23,6 +23,9 @@ sources:
   - publication: JDIH BPK RI
     title: Undang-Undang Nomor 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara
     url: 'https://peraturan.bpk.go.id/Home/Download/114482/UU%20Nomor%2023%20Tahun%202019.pdf'
+  - publication: Repository UPN "Veteran" Jawa Timur
+    title: 'KKN Tematik Bela Negara SDGs 135 Kelurahan Semolowaru, Kecamatan Sukolilo, Kota Surabaya, Jawa Timur (1–31 Juli 2025)'
+    url: 'https://repository.upnjatim.ac.id/44359/'
 ---
 
 Setiap 28 Oktober, linimasa media sosial penuh dengan unggahan Sumpah Pemuda. Banyak yang memasang bingkai foto, mengutip ikrar tentang satu tanah air, satu bangsa, dan bahasa persatuan, lalu besoknya semua kembali seperti biasa. Tidak ada yang salah dengan merayakan, tetapi rasanya sayang kalau semangatnya hanya bertahan sehari.
@@ -49,7 +52,7 @@ Bentuknya tidak harus besar. Beberapa contoh yang bisa dilakukan mahasiswa dari 
 - mahasiswa komunikasi membuat konten edukasi yang mudah dipahami tentang isu yang sering disalahpahami;
 - mahasiswa hukum ikut kegiatan penyuluhan hukum dasar bersama organisasi kampus.
 
-Kampus juga biasanya menyediakan jalur yang lebih terstruktur lewat Kuliah Kerja Nyata (KKN). Di UPN "Veteran" Jawa Timur, ada program KKN Tematik Bela Negara [VERIFY]. Program seperti ini bisa menjadi kesempatan pertama untuk melihat langsung masalah di masyarakat, bukan hanya membacanya di jurnal.
+Kampus juga biasanya menyediakan jalur yang lebih terstruktur lewat Kuliah Kerja Nyata (KKN). Di UPN "Veteran" Jawa Timur, ada program KKN Tematik Bela Negara yang laporannya bisa dibaca di repositori kampus. Program seperti ini bisa menjadi kesempatan pertama untuk melihat langsung masalah di masyarakat, bukan hanya membacanya di jurnal.
 
 Meski begitu, kontribusi tidak harus menunggu program resmi. Program kampus memberi struktur, tetapi inisiatif kecil di luar itu juga punya nilai. Membantu tetangga mengisi formulir daring, mengajari orang tua memakai aplikasi pembayaran dengan aman, atau menjadi relawan di kegiatan kampung adalah kontribusi yang nyata, hanya saja jarang dianggap sebagai sesuatu yang istimewa.
 
