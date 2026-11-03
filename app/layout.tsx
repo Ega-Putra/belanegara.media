@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Lora, Public_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE_NAME, SITE_URL } from "@/lib/articles";
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, baseOpenGraph } from "@/lib/site";
 import "./globals.css";
 
 const serif = Lora({
@@ -19,24 +19,27 @@ const sans = Public_Sans({
   display: "swap",
 });
 
-const description =
-  "Portal artikel untuk menumbuhkan rasa cinta tanah air lewat tulisan.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} – Portal Artikel Bela Negara`,
-    template: `%s – ${SITE_NAME}`,
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description,
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   openGraph: {
-    type: "website",
-    locale: "id_ID",
-    siteName: SITE_NAME,
-    title: `${SITE_NAME} – Portal Artikel Bela Negara`,
-    description,
+    ...baseOpenGraph(),
+    url: "/",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
+  },
 };
 
 export const viewport: Viewport = {

@@ -15,6 +15,11 @@ export type Article = {
   readTime: number;
   excerpt: string;
   content: string[];
+  /**
+   * Opsional: gambar pratinjau sendiri (path di /public, mis. "/images/artikel.jpg", atau URL https).
+   * Wajib 1200x630 dan < 300 KB. Jika kosong, gambar dibuat otomatis oleh opengraph-image.tsx.
+   */
+  image?: string;
 };
 
 export const articles: Article[] = [

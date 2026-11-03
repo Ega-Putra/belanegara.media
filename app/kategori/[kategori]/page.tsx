@@ -4,6 +4,7 @@ import ArticleListing from "@/components/ArticleListing";
 import CategoryFilter from "@/components/CategoryFilter";
 import { categories } from "@/data/articles";
 import { getArticlesByCategory, getCategory } from "@/lib/articles";
+import { DEFAULT_OG_IMAGE, SITE_NAME, baseOpenGraph } from "@/lib/site";
 
 type Props = { params: Promise<{ kategori: string }> };
 
@@ -16,12 +17,26 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = getCategory((await params).kategori);
   if (!category) return {};
-  const description = `Kumpulan artikel kategori ${category.name} di BelaNegara.id.`;
+  const title = `Kategori ${category.name}`;
+  const description = `Kumpulan artikel dan opini kategori ${category.name} di ${SITE_NAME}.`;
+  const url = `/kategori/${category.slug}`;
   return {
-    title: `Kategori ${category.name}`,
+    title,
     description,
-    alternates: { canonical: `/kategori/${category.slug}` },
-    openGraph: { title: `Kategori ${category.name}`, description, url: `/kategori/${category.slug}` },
+    alternates: { canonical: url },
+    openGraph: {
+      ...baseOpenGraph(),
+      url,
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      images: [DEFAULT_OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      images: [DEFAULT_OG_IMAGE],
+    },
   };
 }
 

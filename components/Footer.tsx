@@ -1,12 +1,13 @@
+import Logo from "./Logo";
+import { CONTACT_EMAIL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+
 export default function Footer() {
   return (
     <footer id="kontak">
       <div className="wrap">
         <div>
-          <div className="logo">
-            Bela<span>Negara</span>.id
-          </div>
-          <p>Portal artikel untuk menumbuhkan rasa cinta tanah air lewat tulisan.</p>
+          <Logo size={28} />
+          <p>{SITE_TAGLINE}</p>
         </div>
         <div>
           <b>Hubungi kami</b>
@@ -15,10 +16,10 @@ export default function Footer() {
             <p>
               WhatsApp: <a href="https://wa.me/6281200000000">0812-0000-0000</a>
               <br />
-              Email: <a href="mailto:redaksi@belanegara.id">redaksi@belanegara.id</a>
+              Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </p>
           </address>
-          <p>© 2026 BelaNegara.id</p>
+          <p>© 2026 {SITE_NAME}</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Logo from "./Logo";
+import { SITE_NAME } from "@/lib/site";
 
 export default function Header() {
   return (
@@ -6,8 +8,8 @@ export default function Header() {
       <div className="flag" />
       <header className="top">
         <div className="wrap bar">
-          <Link href="/" className="logo" aria-label="BelaNegara.id – Beranda">
-            Bela<span>Negara</span>.id
+          <Link href="/" className="logo-link" aria-label={`${SITE_NAME} – Beranda`}>
+            <Logo />
           </Link>
           <nav className="nav" aria-label="Navigasi utama">
             <Link href="/">Artikel</Link>

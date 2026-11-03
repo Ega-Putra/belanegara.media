@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PopularSidebar from "@/components/PopularSidebar";
 import { articles } from "@/data/articles";
-import { SITE_NAME, formatDate, getArticle, getCategoryByName } from "@/lib/articles";
+import { formatDate, getArticle, getCategoryByName } from "@/lib/articles";
+import { OG_SIZE, baseOpenGraph, truncate } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -17,26 +18,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticle((await params).slug);
   if (!article) return {};
   const url = `/artikel/${article.slug}`;
+  const description = truncate(article.excerpt);
+  // Tanpa `image`, og:image diisi otomatis oleh opengraph-image.tsx.
+  const images = article.image
+    ? [{ url: article.image, ...OG_SIZE, alt: article.title }]
+    : undefined;
+
   return {
     title: article.title,
-    description: article.excerpt,
+    description,
     authors: [{ name: article.author }],
     alternates: { canonical: url },
     openGraph: {
+      ...baseOpenGraph(),
       type: "article",
       url,
-      siteName: SITE_NAME,
-      locale: "id_ID",
       title: article.title,
-      description: article.excerpt,
+      description,
       publishedTime: article.date,
       authors: [article.author],
       section: article.category,
+      ...(images && { images }),
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.excerpt,
+      description,
+      ...(images && { images }),
     },
   };
 }

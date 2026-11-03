@@ -1,8 +1,5 @@
 import { articles, categories, popularSlugs, type Article } from "@/data/articles";
 
-export const SITE_NAME = "BelaNegara.id";
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://belanegara.id";
-
 /** Mengubah teks menjadi slug: huruf kecil, dipisah tanda hubung. */
 export function slugify(text: string) {
   return text
