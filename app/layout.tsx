@@ -49,7 +49,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${serif.variable} ${sans.variable}`}>
+    <html
+      lang="id"
+      className={`${serif.variable} ${sans.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body>
         <a href="#konten" className="skip">
           Langsung ke konten
