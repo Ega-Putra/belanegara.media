@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
 import { articles } from "@/data/articles";
 import { getArticle, getCategoryByName } from "@/lib/articles";
-import { LOGO_MARK_DATA_URI, loadLoraFonts } from "@/lib/og";
-import { OG_SIZE, SITE_NAME } from "@/lib/site";
+import { loadLogoMark, loadLoraFonts } from "@/lib/og";
+import { OG_SIZE } from "@/lib/site";
 
 export const contentType = "image/png";
 
@@ -24,6 +24,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const article = getArticle((await params).slug)!;
   const { color } = getCategoryByName(article.category);
   const titleSize = article.title.length > 60 ? 58 : 66;
+  const [logoMark, fonts] = await Promise.all([loadLogoMark(), loadLoraFonts()]);
 
   return new ImageResponse(
     (
@@ -40,22 +41,27 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           fontFamily: "Lora",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div
             style={{
               display: "flex",
-              width: 76,
-              height: 76,
-              borderRadius: 18,
+              width: 84,
+              height: 84,
+              borderRadius: 20,
               background: "#fff",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={LOGO_MARK_DATA_URI} width={52} height={52} alt="" />
+            <img src={logoMark} width={64} height={64} alt="" />
           </div>
-          <div style={{ fontSize: 40, fontWeight: 700 }}>{SITE_NAME}</div>
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+            <div style={{ fontSize: 42, fontWeight: 700 }}>Bela Negara</div>
+            <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: 7, marginTop: 8, opacity: 0.85 }}>
+              MEDIA
+            </div>
+          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
@@ -78,6 +84,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         </div>
       </div>
     ),
-    { ...OG_SIZE, fonts: await loadLoraFonts() },
+    { ...OG_SIZE, fonts },
   );
 }

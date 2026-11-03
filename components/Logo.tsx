@@ -1,4 +1,4 @@
-/** Ikon perisai dengan bintang — dipakai di logo, favicon, dan gambar pratinjau. */
+/** Varian ikon saja: helm prajurit dengan bintang. Sumber yang sama dengan app/icon.svg. */
 export function LogoMark({ size = 32 }: { size?: number }) {
   return (
     <svg
@@ -9,32 +9,27 @@ export function LogoMark({ size = 32 }: { size?: number }) {
       focusable="false"
       className="logo-mark"
     >
+      <path d="M6 22C6 12.8 10.5 6.5 16 6.5S26 12.8 26 22Z" fill="#0e8a4f" />
+      <rect x="3" y="20.5" width="26" height="4.5" rx="2.25" fill="#0b6b3c" />
       <path
-        d="M16 1.5 3.5 6v9.2c0 7.4 5.3 13.3 12.5 15.3 7.2-2 12.5-7.9 12.5-15.3V6L16 1.5Z"
-        fill="#0e8a4f"
-      />
-      <path
-        d="M16 4.6 6.5 8v7.3c0 5.8 4 10.5 9.5 12.2 5.5-1.7 9.5-6.4 9.5-12.2V8L16 4.6Z"
-        fill="#e0f4e9"
-        opacity=".18"
-      />
-      <path
-        d="m16 8.6 2.1 4.6 5 .5-3.7 3.4 1 4.9L16 19.5 11.6 22l1-4.9-3.7-3.4 5-.5L16 8.6Z"
+        d="M16 10.40L17.12 13.46L20.37 13.58L17.81 15.59L18.70 18.72L16 16.90L13.30 18.72L14.19 15.59L11.63 13.58L14.88 13.46Z"
         fill="#fff"
       />
     </svg>
   );
 }
 
-/** Wordmark "Bela Negara" + label kecil "Media". */
-export default function Logo({ size = 32 }: { size?: number }) {
+/** Varian horizontal: ikon + wordmark "Bela Negara" dengan label kecil "Media" di bawahnya. */
+export default function Logo({ size = 38 }: { size?: number }) {
   return (
     <span className="logo">
       <LogoMark size={size} />
-      <span className="logo-text">
-        Bela <span>Negara</span>
+      <span className="logo-words">
+        <span className="logo-text">
+          Bela <span>Negara</span>
+        </span>
+        <span className="logo-label">Media</span>
       </span>
-      <span className="logo-label">Media</span>
     </span>
   );
 }

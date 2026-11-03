@@ -6,7 +6,7 @@ export default function Footer() {
     <footer id="kontak">
       <div className="wrap">
         <div>
-          <Logo size={28} />
+          <Logo size={34} />
           <p>{SITE_TAGLINE}</p>
         </div>
         <div>
