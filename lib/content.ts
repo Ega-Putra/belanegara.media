@@ -43,23 +43,32 @@ function loadArticle(file: string): Article {
   };
 }
 
-const allArticles: Article[] = readdirSync(CONTENT_DIR)
-  .filter((f) => f.endsWith(".md"))
-  .map(loadArticle)
-  .filter((a) => SHOW_DRAFTS || !a.draft)
-  .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+function loadAll(): Article[] {
+  return readdirSync(CONTENT_DIR)
+    .filter((f) => f.endsWith(".md"))
+    .map(loadArticle)
+    .filter((a) => SHOW_DRAFTS || !a.draft)
+    .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+}
 
-/** Semua artikel yang terlihat, terbaru lebih dulu. */
+let cache: Article[] | undefined;
+
+/**
+ * Semua artikel yang terlihat, terbaru lebih dulu.
+ * Saat `next dev` file dibaca ulang setiap request agar editan Markdown langsung terlihat;
+ * di produksi cukup dibaca sekali saat build.
+ */
 export function getAllArticles() {
-  return allArticles;
+  if (SHOW_DRAFTS) return loadAll();
+  return (cache ??= loadAll());
 }
 
 export function getArticle(slug: string) {
-  return allArticles.find((a) => a.slug === slug);
+  return getAllArticles().find((a) => a.slug === slug);
 }
 
 export function getArticlesByCategory(categoryId: string) {
-  return allArticles.filter((a) => a.category.id === categoryId);
+  return getAllArticles().filter((a) => a.category.id === categoryId);
 }
 
 export function getPopularArticles() {
