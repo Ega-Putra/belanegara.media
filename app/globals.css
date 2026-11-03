@@ -89,6 +89,22 @@ aside h2 { font-size: 1.1rem; padding-bottom: 10px; border-bottom: 3px solid var
 .art .meta { margin-bottom: 24px }
 .art .meta b { color: var(--ink) }
 .art p { font-family: var(--font-serif), Georgia, serif; font-weight: 500; font-size: 1.05rem; line-height: 1.8; max-width: 62ch }
+.art h2 { font-size: 1.35rem; margin: 30px 0 4px }
+.art ul { font-family: var(--font-serif), Georgia, serif; font-weight: 500; font-size: 1.05rem; line-height: 1.8; max-width: 62ch; padding-left: 22px }
+.art li { margin-bottom: 6px }
+.art li::marker { color: var(--red) }
+.art strong { font-weight: 700 }
+.todo { background: #fff3c4; color: #6b4e00; font: 600 .85em var(--font-sans), sans-serif; padding: 1px 5px; border-radius: 4px }
+.art-figure { margin: 0 0 22px }
+.art-figure img { display: block; width: 100%; height: auto; border-radius: 10px; background: var(--surface) }
+.art-figure figcaption { font-size: .78rem; color: var(--mute); margin-top: 8px }
+.art-figure a, .art-sources a { text-decoration: underline; text-underline-offset: 2px }
+.art-sources { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line) }
+.art-sources h2 { margin-top: 0; font-size: 1.1rem }
+.art-sources ol { padding-left: 20px; font-size: .88rem; color: var(--mute); line-height: 1.6; margin: 8px 0 0 }
+.art-sources li { margin-bottom: 6px; overflow-wrap: anywhere }
+.author-box { margin-top: 28px; background: var(--surface); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px; font-size: .92rem }
+.author-box span { color: var(--mute) }
 .art-cover { height: 10px; border-radius: 99px; margin-bottom: 20px; max-width: 120px }
 
 /* 404 */
