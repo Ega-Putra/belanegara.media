@@ -21,5 +21,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    {
+      url: `${SITE_URL}/kebijakan-privasi`,
+      lastModified: latest,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/syarat-ketentuan`,
+      lastModified: latest,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
   ];
 }

@@ -19,9 +19,14 @@ export default function Footer() {
               Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </p>
           </address>
-          <p>
-            © 2026 {SITE_NAME} · <Link href="/feed.xml">RSS</Link>
+          <p className="footer-links">
+            <Link href="/kebijakan-privasi">Kebijakan Privasi</Link>
+            {" · "}
+            <Link href="/syarat-ketentuan">Syarat & Ketentuan</Link>
+            {" · "}
+            <Link href="/feed.xml">RSS</Link>
           </p>
+          <p className="footer-copy">© 2026 {SITE_NAME}</p>
         </div>
       </div>
     </footer>
