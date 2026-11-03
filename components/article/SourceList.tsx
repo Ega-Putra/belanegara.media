@@ -7,7 +7,7 @@ export default function SourceList({ sources }: { sources: Source[] }) {
       <ol>
         {sources.map((s) => (
           <li key={s.url}>
-            {s.publication}, “<a href={s.url}>{s.title}</a>”
+            {s.publication}, “<a href={s.url} target="_blank" rel="noopener noreferrer">{s.title} ↗</a>”
           </li>
         ))}
       </ol>

@@ -33,6 +33,24 @@ function remarkTodoMarkers() {
 
 export default function MarkdownBody({ markdown }: { markdown: string }) {
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm, remarkTodoMarkers]}>{markdown}</ReactMarkdown>
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm, remarkTodoMarkers]}
+      components={{
+        a: ({ href, children, ...props }) => {
+          const isExternal = href?.startsWith("http://") || href?.startsWith("https://");
+          return (
+            <a
+              href={href}
+              {...props}
+              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            >
+              {children}
+            </a>
+          );
+        },
+      }}
+    >
+      {markdown}
+    </ReactMarkdown>
   );
 }

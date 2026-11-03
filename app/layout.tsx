@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Lora, Public_Sans } from "next/font/google";
+import { Lora, Public_Sans, Roboto_Slab } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, baseOpenGraph } from "@/lib/site";
@@ -19,6 +19,13 @@ const sans = Public_Sans({
   display: "swap",
 });
 
+const logoFont = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-logo",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -27,6 +34,12 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": `${SITE_URL}/feed.xml`,
+    },
+  },
   openGraph: {
     ...baseOpenGraph(),
     url: "/",
@@ -54,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="id"
-      className={`${serif.variable} ${sans.variable}`}
+      className={`${serif.variable} ${sans.variable} ${logoFont.variable}`}
       data-scroll-behavior="smooth"
     >
       <body>

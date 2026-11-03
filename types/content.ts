@@ -20,6 +20,16 @@ export type CoverImage = z.infer<typeof coverImageSchema>;
 export type Source = z.infer<typeof sourceSchema>;
 export type ArticleFrontmatter = z.infer<typeof articleFrontmatterSchema>;
 
+/** Objek artikel ringan untuk fitur pencarian tanpa memuat seluruh body Markdown. */
+export type SearchArticle = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: {
+    name: string;
+  };
+};
+
 /** Artikel yang sudah divalidasi, dengan penulis dan kategori yang sudah di-resolve. */
 export type Article = Omit<ArticleFrontmatter, "authorId" | "category"> & {
   author: Author;

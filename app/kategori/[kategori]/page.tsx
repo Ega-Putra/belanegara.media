@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ArticleListing from "@/components/listing/ArticleListing";
-import CategoryFilter from "@/components/listing/CategoryFilter";
 import { categories, getArticlesByCategory, getCategory } from "@/lib/content";
 import { DEFAULT_OG_IMAGE, SITE_NAME, baseOpenGraph } from "@/lib/site";
 
@@ -45,7 +44,6 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <CategoryFilter active={category.id} />
       <h1 className="page-title">{category.name}</h1>
       <ArticleListing
         articles={getArticlesByCategory(category.id)}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "./Logo";
 import { CONTACT_EMAIL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
@@ -11,15 +12,16 @@ export default function Footer() {
         </div>
         <div>
           <b>Hubungi kami</b>
-          <p>Untuk harga dan pemesanan, kirim pesan ke kami.</p>
           <address>
             <p>
-              WhatsApp: <a href="https://wa.me/6281200000000">0812-0000-0000</a>
+              WhatsApp: <a href="https://wa.me/6283854581262">083854581262</a>
               <br />
               Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             </p>
           </address>
-          <p>© 2026 {SITE_NAME}</p>
+          <p>
+            © 2026 {SITE_NAME} · <Link href="/feed.xml">RSS</Link>
+          </p>
         </div>
       </div>
     </footer>

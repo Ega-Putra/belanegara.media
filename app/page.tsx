@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ArticleListing from "@/components/listing/ArticleListing";
-import CategoryFilter from "@/components/listing/CategoryFilter";
 import { getAllArticles } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -8,11 +7,12 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const articles = getAllArticles();
+
   return (
     <>
-      <CategoryFilter />
       <h1 className="sr-only">Artikel terbaru Bela Negara</h1>
-      <ArticleListing articles={getAllArticles()} heading="Artikel terbaru" />
+      <ArticleListing articles={articles} heading="Artikel terbaru" />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import "server-only";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import matter from "gray-matter";
 import { authors } from "@/data/authors";
@@ -33,22 +33,37 @@ function loadArticle(file: string): Article {
     throw new Error(`[content] ${file} masih berisi [VERIFY] atau [ISI]. Bereskan dulu, atau set draft: true.`);
   }
 
+  if (fm.cover && !existsSync(join(process.cwd(), "public", fm.cover.src.slice(1)))) {
+    throw new Error(`[content] ${file}: gambar cover tidak ditemukan di public${fm.cover.src}.`);
+  }
+
   const { authorId, category, ...rest } = fm;
+  const author = authors[authorId];
+  const resolvedCategory = categories.find((c) => c.id === category);
+  if (!author) throw new Error(`[content] ${file}: authorId "${authorId}" tidak ditemukan.`);
+  if (!resolvedCategory) throw new Error(`[content] ${file}: kategori "${category}" tidak ditemukan.`);
+
   return {
     ...rest,
-    author: authors[authorId],
-    category: categories.find((c) => c.id === category)!,
+    author,
+    category: resolvedCategory,
     body: content.trim(),
     readTime: readingTime(content),
   };
 }
 
 function loadAll(): Article[] {
-  return readdirSync(CONTENT_DIR)
+  const articles = readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith(".md"))
     .map(loadArticle)
-    .filter((a) => SHOW_DRAFTS || !a.draft)
     .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
+
+  const seen = new Set<string>();
+  for (const article of articles) {
+    if (seen.has(article.slug)) throw new Error(`[content] slug duplikat: "${article.slug}".`);
+    seen.add(article.slug);
+  }
+  return articles.filter((a) => SHOW_DRAFTS || !a.draft);
 }
 
 let cache: Article[] | undefined;
@@ -69,6 +84,20 @@ export function getArticle(slug: string) {
 
 export function getArticlesByCategory(categoryId: string) {
   return getAllArticles().filter((a) => a.category.id === categoryId);
+}
+
+/** Artikel lain yang paling relevan, dengan artikel satu kategori diprioritaskan. */
+export function getRelatedArticles(slug: string, limit = 3) {
+  const current = getArticle(slug);
+  if (!current) return [];
+
+  return getAllArticles()
+    .filter((article) => article.slug !== current.slug)
+    .sort((a, b) => {
+      const categoryScore = Number(b.category.id === current.category.id) - Number(a.category.id === current.category.id);
+      return categoryScore || b.date.localeCompare(a.date) || a.title.localeCompare(b.title);
+    })
+    .slice(0, limit);
 }
 
 export function getPopularArticles() {

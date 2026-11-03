@@ -4,11 +4,15 @@ import { notFound } from "next/navigation";
 import ArticleFigure from "@/components/article/ArticleFigure";
 import ArticleMeta from "@/components/article/ArticleMeta";
 import AuthorBox from "@/components/article/AuthorBox";
+import Breadcrumbs from "@/components/article/Breadcrumbs";
 import MarkdownBody from "@/components/article/MarkdownBody";
+import ReadingProgressBar from "@/components/article/ReadingProgressBar";
+import ShareButtons from "@/components/article/ShareButtons";
 import SourceList from "@/components/article/SourceList";
 import PopularSidebar from "@/components/listing/PopularSidebar";
-import { getAllArticles, getArticle } from "@/lib/content";
-import { OG_SIZE, baseOpenGraph, truncate } from "@/lib/site";
+import RelatedArticles from "@/components/listing/RelatedArticles";
+import { getAllArticles, getArticle, getRelatedArticles } from "@/lib/content";
+import { DEFAULT_OG_IMAGE, OG_SIZE, SITE_URL, baseOpenGraph, truncate } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -58,12 +62,66 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticle((await params).slug);
   if (!article) notFound();
   const { category, cover } = article;
+  const relatedArticles = getRelatedArticles(article.slug);
+  const articleUrl = new URL(`/artikel/${article.slug}`, SITE_URL).toString();
+  const categoryUrl = new URL(`/kategori/${category.id}`, SITE_URL).toString();
+  const articleImage = new URL(cover?.src ?? DEFAULT_OG_IMAGE.url, SITE_URL).toString();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: article.title,
+        description: article.excerpt,
+        image: [articleImage],
+        datePublished: article.date,
+        dateModified: article.date,
+        inLanguage: "id-ID",
+        articleSection: category.name,
+        mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+        author: { "@type": "Person", name: article.author.name },
+        publisher: {
+          "@type": "Organization",
+          name: "Bela Negara Media",
+          url: SITE_URL,
+          logo: { "@type": "ImageObject", url: new URL("/icon.svg", SITE_URL).toString() },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Beranda",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: category.name,
+            item: categoryUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: article.title,
+            item: articleUrl,
+          },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
-      <Link href="/" className="back">
-        ← Kembali ke beranda
-      </Link>
+      <ReadingProgressBar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <Breadcrumbs category={category} title={article.title} />
       <div className="grid">
         <article className="art">
           <Link href={`/kategori/${category.id}`} className="tag">
@@ -83,8 +141,10 @@ export default async function ArticlePage({ params }: Props) {
           )}
 
           <MarkdownBody markdown={article.body} />
+          <ShareButtons title={article.title} url={articleUrl} />
           <SourceList sources={article.sources} />
           <AuthorBox author={article.author} />
+          <RelatedArticles articles={relatedArticles} />
         </article>
         <PopularSidebar />
       </div>
