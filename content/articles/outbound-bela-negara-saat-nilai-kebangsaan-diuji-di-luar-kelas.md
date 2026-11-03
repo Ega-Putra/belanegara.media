@@ -8,12 +8,8 @@ draft: false
 excerpt: 'Di UPN "Veteran" Jawa Timur, praktikum Bela Negara tidak berhenti di kelas. Lewat outbound, nilai yang biasanya dihafal harus benar-benar dipraktikkan.'
 cover:
   src: /images/articles/outbound-bela-negara-saat-nilai-kebangsaan-diuji-di-luar-kelas.webp
-  alt: Gedung Rektorat UPN "Veteran" Jawa Timur di Surabaya dengan atap oranye bergaya joglo pada sore hari.
-  credit: Princess Chiks Chiks
-  source: Wikimedia Commons
-  sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rektorat_UPN_Jatim.jpg'
-  license: CC BY-SA 4.0
-  licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'
+  alt: 'Mahasiswa berkaus hijau dan bertopi gelap berdiri melingkar saat kegiatan outbound di halaman berpaving, dengan lapangan berpagar kawat dan pepohonan di belakangnya.'
+  credit: Dokumentasi pribadi penulis
 sources:
   - publication: LP3M UPN "Veteran" Jawa Timur
     title: Pengumuman tentang Pengisian Rubrik Outbound Mandiri Praktikum Mata Kuliah Pendidikan Bela Negara Tahun 2023
