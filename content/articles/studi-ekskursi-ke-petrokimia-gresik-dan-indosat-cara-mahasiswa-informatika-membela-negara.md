@@ -9,7 +9,7 @@ excerpt: 'Lewat Studi Ekskursi 2026 ke PT Petrokimia Gresik dan Indosat, mahasis
 cover:
   src: /images/articles/studi-ekskursi-ke-petrokimia-gresik-dan-indosat-cara-mahasiswa-informatika-membela-negara.webp
   alt: 'Rombongan mahasiswa Program Studi Informatika Fakultas Ilmu Komputer UPN "Veteran" Jawa Timur berjas almamater hijau berfoto bersama dengan pose salam bela negara di balik spanduk Studi Ekskursi 2026 bersama perwakilan industri.'
-  credit: 'Dokumentasi pribadi penulis (Ega Putra Firmansyah)'
+  credit: Dokumentasi HIMATIFA
 sources:
   - publication: Program Studi Informatika UPN "Veteran" Jawa Timur
     title: Profil dan Kurikulum Program Studi Informatika Fakultas Ilmu Komputer
